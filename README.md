@@ -7,4 +7,4 @@ The application is all about fetching emoojis of its correct meaning.The applica
 * React JS
 * HTML
 * CSS
-* Application has been developed with (code-sandbox link)[https://codesandbox.io/s/cranky-chebyshev-ok3fh]
+* Application has been developed with [code-sandbox link](https://codesandbox.io/s/cranky-chebyshev-ok3fh)
