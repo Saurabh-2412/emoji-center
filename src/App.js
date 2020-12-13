@@ -6,18 +6,21 @@ var textColor = "white";
 var message = "none";
 
 var emojiDictionary = {
-  Smiling: "😊",
-  Happy: "😃",
-  Laughing: "😂",
-  Heart: "❤️",
-  Hug: "🤗",
-  Surprise: "😳",
-  Annoyance: "😑",
-  Sad: "😔",
-  Angry: "😡"
+  "😊": "Smiling",
+  "😃": "Happy",
+  "😂": "Laughing",
+  "❤️": "Heart",
+  "🤗": "Hug",
+  "😳": "Surprise",
+  "😑": "Annoyance",
+  "😔": "Sad",
+  "😡": "Angry",
+  "🙃": "Sarcasm",
+  "😐": "Neutral",
+  "😋": "Savouring"
 };
 
-var emojis = Object.values(emojiDictionary);
+var emojisweknow = Object.keys(emojiDictionary);
 
 export default function App() {
   const [meaning, setMeaning] = useState("");
@@ -27,17 +30,16 @@ export default function App() {
     var meaning = emojiDictionary[userInput];
 
     if (meaning === undefined) {
-      message = "block";
       meaning = "oop's unrecognized code,could you please try something else";
       setMeaning(meaning);
     } else {
-      message = "block";
       setMeaning(meaning);
     }
   }
 
   function emojiClickHandler(emoji) {
-    console.log(emoji.keys);
+    var meaning = emojiDictionary[emoji];
+    setMeaning(meaning);
   }
 
   return (
@@ -48,20 +50,22 @@ export default function App() {
       </h1>
 
       <input
-        className="tooltiptext"
         onChange={emojiInputHandler}
-        placeholder="How you are feeling today..? (Please try text using Captalize format i.e => Happy.)"
+        placeholder="You can find few smaple emojis below"
       />
-      <h2 style={{ display: message }}> {meaning}</h2>
+      <h2> {meaning}</h2>
 
-      <h2>Emojis </h2>
-
-      {emojis.map((emoji) => {
+      <h2 style={{ color: "gray" }}>Emojis we know</h2>
+      {emojisweknow.map((emoji) => {
         return (
           <span
-            keys={emoji}
-            style={{ fontSize: "2rem" }}
             onClick={() => emojiClickHandler(emoji)}
+            style={{
+              fontSize: "2rem",
+              cursor: "pointer",
+              padding: "2px"
+            }}
+            keys={emoji}
           >
             {emoji}
           </span>
